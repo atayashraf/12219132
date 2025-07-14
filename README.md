@@ -50,6 +50,3 @@
 - Shortcode uniqueness enforced
 - Default validity: 30 minutes if not specified
 
----
-
-This design ensures a scalable, maintainable, and user-centric React URL Shortener app, fully compliant with the provided requirements.

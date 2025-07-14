@@ -21,9 +21,6 @@ async function getGeoLocation() {
   }
 }
 
-const alertBase =
-  "rounded-md border border-destructive bg-destructive/10 text-destructive px-4 py-2 mb-2 text-center";
-
 export default function RedirectHandler() {
   const { shortcode } = useParams();
   const { log } = useLogger();
@@ -63,19 +60,16 @@ export default function RedirectHandler() {
 
   if (error) {
     return (
-      <div className="flex flex-col items-center justify-center min-h-[60vh]">
-        <div className={alertBase}>{error}</div>
-        <a href="/" className="mt-4 text-primary underline">Go Home</a>
+      <div style={{minHeight: '60vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
+        <div className="alert">{error}</div>
+        <a href="/" className="text-primary underline" style={{marginTop: '1rem'}}>Go Home</a>
       </div>
     );
   }
   return (
-    <div className="flex flex-col items-center justify-center min-h-[60vh]">
-      <svg className="animate-spin h-8 w-8 text-primary" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" />
-      </svg>
-      <div className="mt-4 text-muted-foreground">Redirecting...</div>
+    <div style={{minHeight: '60vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
+      <div className="spinner" />
+      <div className="text-muted-foreground text-center" style={{marginTop: '1rem'}}>Redirecting...</div>
     </div>
   );
 } 
